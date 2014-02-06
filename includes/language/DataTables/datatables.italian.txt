@@ -1,0 +1,17 @@
+{
+    "sProcessing": "Elaborazione in corso ...",
+    "sLengthMenu": "Mostra _MENU_ elementi a pagina",
+    "sZeroRecords": "Nessun documento selezionato",
+    "sInfo": "Visualizzati da _START_ a _END_ di _TOTAL_ documenti trovati",
+    "sInfoEmpty": "Visualizzati 0 documenti ",
+    "sInfoFiltered": "(selezionati da _MAX_ depositati)",
+    "sInfoPostFix": " in archivio",
+    "sSearch": "Ricerca:",
+    "sUrl": "",
+    "oPaginate": {
+        "sFirst": "Primo",
+        "sPrevious": "Precedente",
+        "sNext": "Prossimo",
+        "sLast": "Ultimo"
+    }
+}
