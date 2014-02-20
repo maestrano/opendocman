@@ -49,6 +49,17 @@ callPluginMethod('onBeforeLogin');
 
 if(isset($_SESSION['uid']))
 {
+        // Hook:Maestrano
+        // Check Maestrano session is still valid
+        $maestrano = MaestranoService::getInstance();
+        if ($maestrano->isSsoEnabled()) {
+          //var_dump($_SESSION);
+          if (!$maestrano->getSsoSession()->isValid()) {
+            header("Location: " . $maestrano->getSsoInitUrl());
+            exit;
+          }
+        }
+        
         // redirect to main page
         if(isset($_REQUEST['redirection']))
         {
@@ -58,7 +69,17 @@ if(isset($_SESSION['uid']))
         {
             header('Location:out.php');
         }
+} else {
+  // Hook:Maestrano
+  // Redirect to SSO login
+  $maestrano = MaestranoService::getInstance();
+  if ($maestrano->isSsoEnabled()) {
+    header("Location: " . $maestrano->getSsoInitUrl());
+    exit;
+  }
 }
+
+
 
 if(isset($_POST['login']))
 {

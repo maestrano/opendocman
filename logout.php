@@ -26,6 +26,14 @@ session_start();
 $_SESSION = array();
 // Finally, destroy the session.
 session_destroy();
+
+// Hook:Maestrano
+$maestrano = MaestranoService::getInstance();
+if ($maestrano->isSsoEnabled()) {
+  header("Location: " . $maestrano->getSsoLogoutUrl());
+  exit;
+}
+
 if($GLOBALS["CONFIG"]["authen"] =='kerbauth')
 {
 

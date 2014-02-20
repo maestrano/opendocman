@@ -53,3 +53,17 @@ else
 }
 
 require_once(ABSPATH . 'odm-init.php');
+
+// Hook:Maestrano
+// Load Maestrano
+require_once ABSPATH . 'maestrano/app/init/base.php';
+$maestrano = MaestranoService::getInstance();
+// Require authentication straight away if intranet
+// mode enabled
+if ($maestrano->isSsoIntranetEnabled()) {
+  session_start();
+  if (!$maestrano->getSsoSession()->isValid()) {
+    header("Location: " . $maestrano->getSsoInitUrl());
+    exit;
+  }
+}
