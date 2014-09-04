@@ -27,6 +27,10 @@
 
     </div> <!-- /container -->   
     <script type="text/javascript" src="{$g_base_url}/templates/tweeter/js/bootstrap.min.js"></script>
+    <script src="//cdn.maestrano.com/apps/mno_libs/mno-loader.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      window.mnoLoader.init("opendocman","1");
+    </script>
 </body>
 </html>
 
